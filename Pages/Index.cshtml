@@ -1,0 +1,65 @@
+﻿@page
+@model Ship.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Dashboard</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <hr>
+            <h2>Profile of Senders</h2>
+            <table border="1" class="table table-bordered table-striped">
+                <thead>Shippers </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=1">Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=2">eBay</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=3">Calvin Klein</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=4">Alibaba</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=5">Levis</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://localhost:57261/SenderProfile?id=6">Macy's</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <hr>
+            <div>
+                <hr>
+                <h2>Statistics</h2>
+                <table border="1" class="table table-bordered table-striped">
+                    <thead>Statistics</thead>
+                    <thead>Count</thead>
+                    <tbody>
+                        <tr>
+                            <td>Shipments</td>
+                            <td class="text-right">@Model.CountOfShipment</td>
+                        </tr>
+                        <tr>
+                            <td>Shippers</td>
+                            <td class="text-right">@Model.CountOfShipper</td>
+                        </tr>
+                        <tr>
+                            <td>Recipients</td>
+                            <td class="text-right">@Model.CountOfRecipient</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

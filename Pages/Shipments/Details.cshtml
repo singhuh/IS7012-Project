@@ -1,0 +1,61 @@
+﻿@page
+@model Ship.Pages.Shipments.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Shipment</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.WB)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.WB)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.Sender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.Sender.SAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.Recipient)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.Recipient.RName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.DateShipped)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.DateShipped)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.DateDelivered)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.DateDelivered)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.DeliverySpeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.DeliverySpeed.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Shipment.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipment.Weight)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Shipment.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@page
+@model Ship.Pages.AdminModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered border=3">
+            <thead>
+                <tr>
+                    <th colspan="2">Administrator</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a asp-page="/Senders/Index">Shippers</a></td>
+                </tr>
+                <tr>
+                    <td><a asp-page="/Recipients/Index">Recipients</a></td>
+                </tr>
+                <tr>
+                    <td><a asp-page="/Shipments/Index">Shipments</a></td>
+                </tr>
+                <tr>
+                    <td><br />
+                </tr>
+                <tr>
+                    <td><a asp-page="/Search">Track Shipments</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

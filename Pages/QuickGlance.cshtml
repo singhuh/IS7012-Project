@@ -1,0 +1,60 @@
+﻿@page
+@model Ship.Pages.QuickGlanceModel
+@{
+    ViewData["Title"] = "Quick Glance";
+}
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-0">
+            <div class="jumbotron text-center">
+                <h2>Quick Glance at the Shippers and Shipments</h2>
+                <h3>Table below shows the summary of the shipments</h3>
+                <center>
+                    <img src="https://www.mylocally.com/wp-content/uploads/2010/06/philippe.png" alt="glance" class="img-rounded" style="width:10%">
+                </center>
+            </div>
+        </nav>
+    </header>
+</body>
+<h1>Quick Glance</h1>
+<table class="table table-bordered table-striped" border="1">
+    <thead>
+        <tr>
+            <th><b>Shipment Id</b></th>
+            <th><b>Shipment Waybill</b></th>
+            <th><b>Shipper</b></th>
+            <th><b>Date Shipped</b></th>
+            <th><b>Date Received</b></th>
+            <th><b>Category</b> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var code in Model.Shipments)
+        {
+        <tr>
+            <td>@code.ID</td>
+            <td>@code.WB</td>
+            <td>@code.Sender.SName</td>
+            <td>@code.DateShipped</td>
+            <td>@code.DateDelivered</td>
+            @if (code.Weight <= 1400)
+            {
+                <td><span class="badge badge-success">Regular</span></td>
+            }
+
+            else if (code.Weight > 1400)
+            {
+                <td><span class="badge badge-danger">Bulk</span></td>
+
+            }
+        </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+
+
+

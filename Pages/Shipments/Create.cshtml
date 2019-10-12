@@ -1,0 +1,61 @@
+﻿@page
+@model Ship.Pages.Shipments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Shipment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Shipment.WB" class="control-label"></label>
+                <input asp-for="Shipment.WB" class="form-control" />
+                <span asp-validation-for="Shipment.WB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.SenderID" class="control-label"></label>
+                <select asp-for="Shipment.SenderID" class ="form-control" asp-items="ViewBag.SenderID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.RecipientID" class="control-label"></label>
+                <select asp-for="Shipment.RecipientID" class ="form-control" asp-items="ViewBag.RecipientID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.DateShipped" class="control-label"></label>
+                <input asp-for="Shipment.DateShipped" class="form-control" />
+                <span asp-validation-for="Shipment.DateShipped" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.DateDelivered" class="control-label"></label>
+                <input asp-for="Shipment.DateDelivered" class="form-control" />
+                <span asp-validation-for="Shipment.DateDelivered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.DeliverySpeedID" class="control-label"></label>
+                <select asp-for="Shipment.DeliverySpeedID" class ="form-control" asp-items="ViewBag.DeliverySpeedID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipment.Weight" class="control-label"></label>
+                <input asp-for="Shipment.Weight" class="form-control" />
+                <span asp-validation-for="Shipment.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

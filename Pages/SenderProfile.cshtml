@@ -1,0 +1,46 @@
+﻿@page
+@model ship.Pages.SenderProfileModel
+@{
+    ViewData["Title"] = "Sender Profile";
+}
+
+<div class="container">
+    <h1>@Model.Senders.SName</h1>
+    <p>The pages shows the details of senders by name.</p>
+    <table class="table table-bordered table-striped" border="1">
+        <thead>
+            <tr>
+                <th><b>Recipient</b></th>
+                <th><b>Shipment Category</b></th>
+                <th><b>Ship Date</b></th>
+                <th><b>Delivery Date</b></th>
+                <th><b>Shipping Speed</b></th>
+                <th><b>Waybill#</b></th>
+                <th><b>Status</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var code in Model.Senders.Shipments)
+            {
+                <tr>
+                    <td>@code.Recipient</td>
+                    <td>@code.Category</td>
+                    <td>@code.DateShipped</td>
+                    <td>@code.DateDelivered</td>
+                    <td>@code.DeliverySpeed</td>
+                    <td>@code.WB</td>
+                    @if (code.DateDelivered < DateTime.Now)
+                    {
+                        <td><span class="badge badge-success">Delivered</span></td>
+                    }
+                    else if (code.DateDelivered == null)
+                    {
+                        <td><span class="badge badge-warning">Not Yet Delivered</span></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

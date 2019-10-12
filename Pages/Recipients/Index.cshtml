@@ -1,0 +1,54 @@
+﻿@page
+@model Ship.Pages.Recipients.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient[0].RName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient[0].RPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient[0].Rddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient[0].DateReceived)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Recipient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateReceived)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

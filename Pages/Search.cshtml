@@ -1,0 +1,70 @@
+﻿@page
+@model Ship.Pages.SearchShipmentsModel
+@{
+}
+
+<form action="" method="POST" style="margin-top: 50px;">
+    <div class="form-group">
+        <label class="control-label" for="search">Waybill Number </label>
+        <input type="text" class="form-control" name="search" id="search" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="TRACK SHIPMENT" class="btn btn-default" />
+    </div>
+</form>
+
+
+@if (Model.SearchCompleted)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Waybill #</th>
+                <th>Sender Name</th>
+                <th>Receiver Name</th>
+                <th>Date Shipped</th>
+                <th>Package Type</th>
+                <th>Delivery Date (Expected)</th>
+                <th>Delivery Status</th>
+                <th>Deliver To</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.SearchResults.Count > 0)
+            {
+                @foreach (var code in Model.SearchResults)
+                {
+            <tr>
+                <td>@code.WB</td>
+                <td>@code.Sender.SName</td>
+                <td>@code.Recipient.RName</td>
+                <td>@code.DateShipped</td>
+                <td>@code.Category</td>
+                <td>@code.DateDelivered</td>
+                <td>@code.Recipient.DeliveryStatus</td>
+                <td>@code.Recipient.Rddress</td>
+
+            </tr>
+                }
+            }
+            else
+            {
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No results found for term "@Model.Search"
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class=" alert alert-info">
+        <p>
+            Enter the Waybill # or Tracking # into the box above and click <strong>TRACK SHIPMENT</strong>
+        </p>
+    </div>
+}
+
